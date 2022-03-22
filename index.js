@@ -4,6 +4,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app =  express()
 
+
+const PORT = process.env.PORT || 3000;
+
 // forma de ler Json / middlewares 
 app.use(
     express.urlencoded({
@@ -39,9 +42,9 @@ mongoose
 )
 .then(() =>{
     console.log('conectamos ao mongoBD')
+
     
-    var porta = process.env.PORT || 3000;
-    app.listen(porta)
+    app.listen(PORT)
 })
 .catch((err) => console.log(err))
 
