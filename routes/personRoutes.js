@@ -27,7 +27,6 @@ oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN})
 router.post('/', async (req, res) =>{
 
     const {nome, email, password, telefone, genero, data_nascimento, endereco, cidade, estado } = req.body
-
   
 
     const person ={
