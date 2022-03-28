@@ -149,12 +149,12 @@ router.get('/:id', async(req, res) =>{
 })
 
 //READ - ler todos os dados de um nome em especifico
-router.get('/:nome', (req, res) =>{
+/*router.get('/:nome', async (req, res) =>{
 
         try{
-
+            const person = await Person.findOne({nome: nome})
  
-          res.status(200).json(res)
+          res.status(200).json(person)
             
          }catch(erro){
              res.status(500).json({Error: erro})
@@ -163,7 +163,7 @@ router.get('/:nome', (req, res) =>{
     
     })
 
-
+*/
 
 //UPDATE - atualização de dados PUT e PATCH
 router.patch('/:id', async (req, res) => {
@@ -219,7 +219,7 @@ try{
 
 })
 
-router.post('/pin', async (req, res) => {
+/*router.post('/pin', async (req, res) => {
 
     const {email} = req.body
     
@@ -232,7 +232,7 @@ router.post('/pin', async (req, res) => {
      }
 
 })
-
+*/
 
 
 

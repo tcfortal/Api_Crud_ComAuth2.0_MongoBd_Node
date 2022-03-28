@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const app =  express()
 
 
-const PORT = process.env.PORT || 3000;
 
 // forma de ler Json / middlewares 
 app.use(
@@ -32,19 +31,11 @@ res.json({message: 'Oi express!'})
 //entregar uma porta
 
 
-const DB_USER=process.env.DB_USER
-const DB_PASSWORD= encodeURIComponent(process.env.DB_PASSWORD)
+mongoose.connect(
+    process.env.MONGO_URL, 
+    {
+useNewUrlParser: true
+}
+);
 
-
-mongoose
-.connect(
-    `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.i6g2v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
-)
-.then(() =>{
-    console.log('conectamos ao mongoBD')
-
-    
-    app.listen(PORT)
-})
-.catch((err) => console.log(err))
-
+app.listen(process.env.PORT || 3000);
